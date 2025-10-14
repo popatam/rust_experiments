@@ -78,10 +78,10 @@ impl Display for Output<'_> {
             write!(f, "lines: {}\n", self.counters.lines)?;
         }
         if self.flags.is_word_count {
-            write!(f, "lines: {}\n", self.counters.words)?;
+            write!(f, "words: {}\n", self.counters.words)?;
         }
         if self.flags.is_char_count {
-            write!(f, "lines: {}\n", self.counters.chars)?;
+            write!(f, "chars: {}\n", self.counters.chars)?;
         }
 
         write!(f, "")
@@ -140,6 +140,7 @@ fn main() {
                 exit(1);
             });
             if flags.is_lines_count {
+                // оригинальный wc считает по \n
                 counters.lines += 1
             }
             if flags.is_word_count {
