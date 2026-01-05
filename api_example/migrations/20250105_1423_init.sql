@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS todo (
+    id BIGSERIAL PRIMARY KEY,
+    body TEXT NOT NULL,
+    done BOOLEAN NOT NULL DEFAULT false,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+)
